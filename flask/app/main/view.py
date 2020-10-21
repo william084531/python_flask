@@ -19,7 +19,7 @@ def home(): # 回應首頁連線的函式
             db.session.add(user)
             session['known'] = False
             if app_config['FLASKY_ADMIN']:
-                send_email(app_config['FLASKY_ADMIN'], 'New User', 'mail/new_users', user=user)
+                send_email(app_config['FLASKY_ADMIN'], 'New User: '+form.name.data, 'mail/new_users', user=user)
         else:
             session['known'] = True
         session['name'] = form.name.data
